@@ -1,12 +1,20 @@
 import "./App.css";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  Outlet,
+  RouterProvider,
+} from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import LeftBar from "./components/leftbar/LeftBar";
 import RightBar from "./components/rightbar/RightBar";
+import Home from "./pages/home/Home";
+import Profile from "./pages/profile/Profile";
 
 function App() {
+  const currentUser = false;
   const Layout = () => {
     return (
       <div>
@@ -20,10 +28,28 @@ function App() {
     );
   };
 
+  const ProtectedRoute = (props) => {
+    if (!currentUser) return <Navigate to="/login" />;
+    return props.children;
+  };
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Login />,
+      element: (
+        <ProtectedRoute>
+          <Layout />
+        </ProtectedRoute>
+      ),
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/profile/:id",
+          element: <Profile />,
+        },
+      ],
     },
     {
       path: "/login",
