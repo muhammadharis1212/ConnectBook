@@ -1,0 +1,71 @@
+.register {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(193, 195, 255, 0.5);
+  .card {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    height: 600px;
+    max-width: 50%;
+    overflow: hidden;
+    .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      padding: 50px;
+      justify-content: center;
+
+      h1 {
+        color: #555;
+        margin: 0;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        input {
+          padding: 20px 10px;
+          border: none;
+          border-bottom: 1px solid lightgray;
+        }
+        button {
+          padding: 10px;
+          border: none;
+          cursor: pointer;
+          background-color: #938eef;
+          font-weight: bold;
+          color: white;
+          width: 50%;
+        }
+      }
+    }
+    .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 50px;
+      gap: 30px;
+      background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
+        url("https://images.pexels.com/photos/708440/pexels-photo-708440.jpeg");
+      background-size: 300%;
+      background-position: 50% 30%;
+      color: white;
+      h1 {
+        margin: 0;
+        font-size: 90px;
+        line-height: 100px;
+      }
+      button {
+        padding: 10px;
+        background-color: white;
+        border: none;
+        width: 50%;
+        color: rebeccapurple;
+      }
+    }
+  }
+}
