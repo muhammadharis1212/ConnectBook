@@ -1,51 +1,59 @@
+@import "../../style.scss";
 .leftBar {
-  flex: 2;
-  position: sticky;
-  top: 57px;
-  height: calc(100vh - 57px);
-  overflow: scroll;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  .container {
-    padding: 20px;
-
-    hr {
-      margin: 20px 0px;
-      border: none;
-      height: 0.5px;
-      background-color: lightgrey;
+  @include themed($themes) {
+    flex: 2;
+    position: sticky;
+    top: 57px;
+    height: calc(100vh - 57px);
+    overflow: scroll;
+    background-color: t("bgColor");
+    color: t("textColor");
+    &::-webkit-scrollbar {
+      display: none;
     }
-    .menu {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      span {
-        font-size: 12px;
+    .container {
+      padding: 20px;
+
+      hr {
+        margin: 20px 0px;
+        border: none;
+        height: 0.5px;
+        background-color: t("border");
       }
-      .user {
+      .menu {
         display: flex;
-        align-items: center;
-        gap: 10px;
-        img {
-          width: 30px;
-          height: 30px;
-          object-fit: cover;
-          border-radius: 50%;
-        }
+        flex-direction: column;
+        gap: 20px;
         span {
+          font-size: 12px;
+          color: t("textColor");
         }
-      }
-      .item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        img {
-          width: 30px;
-          height: 30px;
+        .user {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+            border-radius: 50%;
+          }
+          span {
+            color: t("textColor");
+          }
         }
-        span {
-          font-size: 14px;
+        .item {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          img {
+            width: 30px;
+            height: 30px;
+          }
+          span {
+            font-size: 14px;
+            color: t("textColor");
+          }
         }
       }
     }

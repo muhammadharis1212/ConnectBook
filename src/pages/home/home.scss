@@ -1,0 +1,9 @@
+@import "../../style.scss";
+
+.home {
+  @include themed($themes) {
+    background-color: t("bgSoft");
+    padding: 20px 70px;
+    color: t("textColor");
+  }
+}
