@@ -13,12 +13,17 @@ import RightBar from "./components/rightbar/RightBar";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
 import "./style.scss";
+import { useContext } from "react";
+import { ThemeContext } from "./context/ThemeContext";
+import { AuthContext } from "./context/AuthContext";
 
 function App() {
-  const currentUser = true;
+  const { currentUser } = useContext(AuthContext);
+  const { darkMode } = useContext(ThemeContext);
+  console.log(`theme-${darkMode ? "dark" : "light"}`);
   const Layout = () => {
     return (
-      <div className="theme-dark">
+      <div className={`theme-${darkMode ? "dark" : "light"}`}>
         <Navbar />
         <div style={{ display: "flex" }}>
           <LeftBar />
